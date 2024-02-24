@@ -1,4 +1,5 @@
-import React from 'react';
+import * as Location from 'expo-location';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -13,6 +14,19 @@ import {
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 function App(): React.JSX.Element {
+
+  const [location, setLocation] = useState();
+  const [ok, setOk] = useState(true);
+
+  const ask = async() => {
+    const permision = await Location.requestBackgroundPermissionsAsync();
+    console.log(permision);
+  }
+
+  useEffect(() => {
+    ask()
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.city}>
