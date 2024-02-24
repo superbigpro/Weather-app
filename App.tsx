@@ -18,7 +18,12 @@ function App(): React.JSX.Element {
       <View style={styles.city}>
         <Text style={styles.cityName}>Seoul</Text>
       </View>
-      <ScrollView horizontal contentContainerStyle={styles.weather}>
+      <ScrollView 
+      pagingEnabled 
+      horizontal
+      showsHorizontalScrollIndicator={false} 
+      contentContainerStyle
+      ={styles.weather}>
         <View style={styles.day}>
           <Text style={styles.temp}>28</Text>
           <Text style={styles.desc}>Sunny</Text>
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   weather: {
-    backgroundColor: "teal",
+
   },
   day: {
     alignItems: "center",
